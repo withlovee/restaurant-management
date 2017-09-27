@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('delete-button', require('./components/DeleteButton.vue'));
+Vue.component('map-edit', require('./components/MapEdit.vue'));
 
 $.ajaxSetup({
     headers: {
@@ -26,3 +27,5 @@ $.ajaxSetup({
 const app = new Vue({
     el: '#app'
 });
+
+

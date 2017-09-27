@@ -76,5 +76,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <!-- AIzaSyC-AOPERdaE7WbCPJmB4ItkugIFlRlhn64 -->
+    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-AOPERdaE7WbCPJmB4ItkugIFlRlhn64&callback=initMap">
+    </script>
 </body>
 </html>

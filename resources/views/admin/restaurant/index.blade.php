@@ -66,8 +66,6 @@
                     <form method="POST" action="{{ route('restaurant-store', ['id' => optional($restaurant)->id]) }}">
                         {{ csrf_field() }}
 
-                        {{ optional($restaurant)->id }}
-
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name">Restaurant name</label>
 
@@ -92,28 +90,26 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('lat') ? ' has-error' : '' }}">
-                            <label for="lat">lat</label>
+                        <div class="form-group{{ $errors->has('lat') || $errors->has('lng') ? ' has-error' : '' }}">
 
-                            <input id="lat" type="text" class="form-control" name="lat" value="{{ old('lat', optional($restaurant)->lat) }}" requiredx>
+                            <label for="lng">Click to pin location</label>
 
-                            @if ($errors->has('lat'))
+                            @if ($errors->has('lat') || $errors->has('lng'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('lat') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('lng') ? ' has-error' : '' }}">
-                            <label for="lng">lng</label>
-
-                            <input id="lng" type="text" class="form-control" name="lng" value="{{ old('lng', optional($restaurant)->lng) }}" requiredx>
-
-                            @if ($errors->has('lng'))
-                                <span class="help-block">
                                     <strong>{{ $errors->first('lng') }}</strong>
                                 </span>
                             @endif
+
+                            @php
+                                $lat = old('lat', optional($restaurant)->lat);
+                                $lng = old('lng', optional($restaurant)->lng);
+                            @endphp
+
+                            <map-edit 
+                                :lat="{{ $lat || $lat === 0 ? $lat : 5 }}" 
+                                :lng="{{ $lng || $lng === 0 ? $lng : 5 }}"
+                            ></map-edit>
                         </div>
 
                         @if (isset($restaurant))
