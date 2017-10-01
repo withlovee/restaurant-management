@@ -44,7 +44,7 @@ MapHelper.createMarker = (map, location, icon) => {
   return new google.maps.Marker({
     position: location,
     icon: {
-      url: icon,
+      url: window.url + '/images/' + icon,
       scaledSize: new google.maps.Size(32, 32),
       origin: new google.maps.Point(0, 0),
       anchor: new google.maps.Point(16, 16)
@@ -58,7 +58,7 @@ MapHelper.createMarkers = (self, restaurants) => {
   let markers = [];
 
   for (let restaurant of restaurants) {
-    let marker = MapHelper.createMarker(self.mapElement, { lat: restaurant.lat, lng: restaurant.lng }, '/images/icon_noodles.png');
+    let marker = MapHelper.createMarker(self.mapElement, { lat: restaurant.lat, lng: restaurant.lng }, 'icon_noodles.png');
 
     marker.addListener('click', function() {
       MapHelper.openInfo(self, marker, restaurant);

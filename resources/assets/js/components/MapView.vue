@@ -66,7 +66,7 @@
           self.directionsDisplay.setMap(self.mapElement);
 
           // marker for user's location
-          MapHelper.createMarker(self.mapElement, self.location, '/images/icon_happy.png');
+          MapHelper.createMarker(self.mapElement, self.location, 'icon_happy.png');
 
           // marker for restaurants
           self.markers = MapHelper.createMarkers(self, restaurants);

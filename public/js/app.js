@@ -42980,7 +42980,7 @@ var Restaurant = __webpack_require__(56);
         self.directionsDisplay.setMap(self.mapElement);
 
         // marker for user's location
-        MapHelper.createMarker(self.mapElement, self.location, '/images/icon_happy.png');
+        MapHelper.createMarker(self.mapElement, self.location, 'icon_happy.png');
 
         // marker for restaurants
         self.markers = MapHelper.createMarkers(self, restaurants);
@@ -43045,7 +43045,7 @@ MapHelper.createMarker = function (map, location, icon) {
   return new google.maps.Marker({
     position: location,
     icon: {
-      url: icon,
+      url: window.url + '/images/' + icon,
       scaledSize: new google.maps.Size(32, 32),
       origin: new google.maps.Point(0, 0),
       anchor: new google.maps.Point(16, 16)
@@ -43059,7 +43059,7 @@ MapHelper.createMarkers = function (self, restaurants) {
   var markers = [];
 
   var _loop = function _loop(restaurant) {
-    var marker = MapHelper.createMarker(self.mapElement, { lat: restaurant.lat, lng: restaurant.lng }, '/images/icon_noodles.png');
+    var marker = MapHelper.createMarker(self.mapElement, { lat: restaurant.lat, lng: restaurant.lng }, 'icon_noodles.png');
 
     marker.addListener('click', function () {
       MapHelper.openInfo(self, marker, restaurant);
