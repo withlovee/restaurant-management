@@ -21,7 +21,6 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Address</th>
-                                    <th>Location</th>
                                     <th>Owner</th>
                                     <th width="50px">&nbsp;</th>
                                 </tr>
@@ -32,7 +31,6 @@
                                         <td>{{ $item->id }}</td>
                                         <td><a href="{{ route('restaurant-store', ['id' => $item->id]) }}">{{ $item->name }}</a></td>
                                         <td>{{ $item->address }}</td>
-                                        <td>{{ $item->lat }}, {{ $item->lng }}</td>
                                         <td><a href="mailto:{{ $item->owner['email'] }}">{{ $item->owner['name'] }}</a></td>
                                         <td class="delete">
                                             <delete-button name="{{ $item->name }}" route="{{ route('restaurant-destroy', ['id' => $item->id]) }}"></delete-button>
