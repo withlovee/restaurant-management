@@ -62,6 +62,7 @@
                                 </ul>
                             </li>
                         @endguest
+                        <li><a href="{{ route('restaurant-index') }}">Admin</a></li>
                     </ul>
                 </div>
             </div>
