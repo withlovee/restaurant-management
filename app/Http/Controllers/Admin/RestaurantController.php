@@ -39,6 +39,7 @@ class RestaurantController extends Controller
     {
         $restaurant = $this->restaurantRepo->getByID($id);
 
+        // Cannot find the restaurant by the ID, redirect user to main page
         if ($id !== null && $restaurant == null) {
             return redirect()->action('Admin\RestaurantController@index');
         }
@@ -122,7 +123,8 @@ class RestaurantController extends Controller
     }
 
     /**
-     * Create a flash message saying whether the restaurant is created or updated
+     * Create a flash message saying whether the restaurant is 
+     * successfully created or updated
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id

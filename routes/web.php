@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/get-restaurants', 'HomeController@getRestaurants')->name('get-restaurants');
 
 Route::namespace('Admin')->group(function () {
     Route::get('admin/restaurant/{id?}', 'RestaurantController@index')->name('restaurant-index');

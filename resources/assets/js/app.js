@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.initMap = () => {};
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,6 +18,8 @@ window.Vue = require('vue');
 
 Vue.component('delete-button', require('./components/DeleteButton.vue'));
 Vue.component('map-edit', require('./components/MapEdit.vue'));
+Vue.component('direction-guide', require('./components/DirectionGuide.vue'));
+Vue.component('map-view', require('./components/MapView.vue'));
 
 $.ajaxSetup({
     headers: {
@@ -24,8 +27,7 @@ $.ajaxSetup({
     }
 });
 
+window.bus = new Vue();
 const app = new Vue({
     el: '#app'
 });
-
-

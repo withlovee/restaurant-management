@@ -16,7 +16,6 @@ class RestaurantRepository implements RestaurantRepositoryInterface
      */
     public function updateOrCreate($restaurantData)
     {
-        // if (isset($restaurantData))
         $condition = [
             'id' => $restaurantData['id']
         ];
@@ -25,13 +24,35 @@ class RestaurantRepository implements RestaurantRepositoryInterface
     }
     
     /**
-     * Create restaurant and categories to the database
+     * Return all restaurants
      *
      * @return array
      */
     public function getAll()
     {
         return Restaurant::all();
+    }
+    
+    /**
+     * Return restaurants name, location, address, and categories
+     *
+     * @return array
+     */
+    public function getAllWithCategories()
+    {
+        $results = [];
+        $restaurants = Restaurant::all();
+        
+        foreach ($restaurants as $restaurant) {
+            $results[] = [
+                'name' => $restaurant->name,
+                'lat' => $restaurant->lat,
+                'lng' => $restaurant->lng,
+                'address' => $restaurant->address
+            ];
+        }
+
+        return $results;
     }
 
     /**
